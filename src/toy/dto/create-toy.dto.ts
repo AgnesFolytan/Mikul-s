@@ -3,10 +3,10 @@ import { IsNotEmpty, IsString } from "class-validator"
 export class CreateToyDto {
     @IsString()
     @IsNotEmpty()
-    name: String
+    name: string
     @IsString()
     @IsNotEmpty()
-    material: String
+    material: string
     @IsString()
     @IsNotEmpty()
     weight: number 

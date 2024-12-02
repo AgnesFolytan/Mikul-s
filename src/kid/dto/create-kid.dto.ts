@@ -3,11 +3,11 @@ import { IsNotEmpty, IsString } from "class-validator"
 export class CreateKidDto {
     @IsString()
     @IsNotEmpty()
-    name: String
+    name: string
     @IsString()
     @IsNotEmpty()
-    adress: String
+    adress: string
     @IsString()
     @IsNotEmpty()
-    satisfied: Boolean
+    satisfied: boolean
 }
