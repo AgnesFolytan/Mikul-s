@@ -18,13 +18,14 @@ export class KidService {
   }
 
   findAll() {
-    return this.db.kid.findMany();
+    return this.db.kid.findMany({include: {toys: true}});
   }
 
   addToyToChild(kidid: number, toyid: number){
     return this.db.kid.update({
       where: {id: kidid},
       data: {toys: {connect: {id: toyid}}}
+      , include: {toys: true}
     })
   }
 
@@ -32,6 +33,7 @@ export class KidService {
     return this.db.kid.update({
       where: {id: kidid},
       data: {toys: {disconnect: {id: toyid}}}
+      , include: {toys: true}
     })
   }
 

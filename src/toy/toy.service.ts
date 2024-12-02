@@ -25,7 +25,7 @@ export class ToyService {
   }
 
   findOne(id: number) {
-    return this.db.toy.findUnique({
+    return this.db.toy.findMany({
       where: {
         id
       }

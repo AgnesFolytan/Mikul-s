@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
 import { KidService } from './kid.service';
 import { CreateKidDto } from './dto/create-kid.dto';
 import { UpdateKidDto } from './dto/update-kid.dto';
@@ -17,12 +17,12 @@ export class KidController {
     return this.kidService.findAll();
   }
 
-  @Post(':kidid/toys/:toyid')
+  @Put(':kidid/toys/:toyid')
   addToyToChild(@Param('kidid') kidid: string, @Param('toyid') toyid: string){
     return this.kidService.addToyToChild(+kidid, +toyid);
   }
 
-  @Post(':kidid/toys/:toyid')
+  @Delete(':kidid/toys/:toyid')
   takeToyfromChild(@Param('kidid') kidid: string, @Param('toyid') toyid: string){
     return this.kidService.takeToyfromChild(+kidid, +toyid);
   }
