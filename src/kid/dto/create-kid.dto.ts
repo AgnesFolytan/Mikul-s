@@ -9,5 +9,5 @@ export class CreateKidDto {
     adress: string
     @IsString()
     @IsNotEmpty()
-    satisfied: boolean
+    statisfied: boolean
 }

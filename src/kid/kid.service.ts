@@ -21,6 +21,20 @@ export class KidService {
     return this.db.kid.findMany();
   }
 
+  addToyToChild(kidid: number, toyid: number){
+    return this.db.kid.update({
+      where: {id: kidid},
+      data: {toys: {connect: {id: toyid}}}
+    })
+  }
+
+  takeToyfromChild(kidid: number, toyid: number){
+    return this.db.kid.update({
+      where: {id: kidid},
+      data: {toys: {disconnect: {id: toyid}}}
+    })
+  }
+
   findOne(id: number) {
     return this.db.kid.findUnique({
       where: {

@@ -17,6 +17,16 @@ export class KidController {
     return this.kidService.findAll();
   }
 
+  @Post(':kidid/toys/:toyid')
+  addToyToChild(@Param('kidid') kidid: string, @Param('toyid') toyid: string){
+    return this.kidService.addToyToChild(+kidid, +toyid);
+  }
+
+  @Post(':kidid/toys/:toyid')
+  takeToyfromChild(@Param('kidid') kidid: string, @Param('toyid') toyid: string){
+    return this.kidService.takeToyfromChild(+kidid, +toyid);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.kidService.findOne(+id);

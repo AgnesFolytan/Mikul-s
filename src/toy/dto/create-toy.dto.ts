@@ -1,13 +1,18 @@
-import { IsNotEmpty, IsString } from "class-validator"
+import { IsEnum, IsIn, IsNotEmpty, IsNumber, IsString, Min } from "class-validator"
 
+const materials = ['wood', 'metal', 'plastic', 'other'];
 export class CreateToyDto {
     @IsString()
     @IsNotEmpty()
     name: string
-    @IsString()
+
     @IsNotEmpty()
+    @IsString()
+    @IsIn(materials)
     material: string
-    @IsString()
+
+    @IsNumber()
     @IsNotEmpty()
+    @Min(0)
     weight: number 
 }
